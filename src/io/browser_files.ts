@@ -84,6 +84,7 @@ export class BrowserDownloads implements IOHandler {
       // to parents, so that the downloaded file names can be controlled.
       const jsonAnchor = this.jsonAnchor == null ? document.createElement('a') :
                                                    this.jsonAnchor;
+      document.body.appendChild(jsonAnchor);
       jsonAnchor.download = this.modelTopologyFileName;
       jsonAnchor.href = modelTopologyAndWeightManifestURL;
       // Trigger downloads by calling the `click` methods on the download
@@ -94,6 +95,7 @@ export class BrowserDownloads implements IOHandler {
         const weightDataAnchor = this.weightDataAnchor == null ?
             document.createElement('a') :
             this.weightDataAnchor;
+        document.body.appendChild(weightDataAnchor);
         weightDataAnchor.download = this.weightDataFileName;
         weightDataAnchor.href = weightsURL;
         weightDataAnchor.click();
